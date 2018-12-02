@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/twelfthjames/status/issues"
   },
-  "homepage": "https://github.com/twelfthjames/status#readme"
+  "homepage": "https://github.com/twelfthjames/status#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-eslint": "^5.0.0",
+    "gulp-sass": "^4.0.2"
+  }
 }

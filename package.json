@@ -23,6 +23,7 @@
     "gulp-eslint": "^5.0.0",
     "gulp-handlebars": "^5.0.2",
     "gulp-htmlmin": "^5.0.1",
-    "gulp-sass": "^4.0.2"
+    "gulp-sass": "^4.0.2",
+    "merge-stream": "^1.0.1"
   }
 }

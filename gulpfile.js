@@ -4,12 +4,13 @@ const gulp = require('gulp'),
       eslint = require('gulp-eslint'),
       handlebars = require('gulp-handlebars'),
       htmlmin = require('gulp-htmlmin'),
+      merge = require('merge-stream'),
       sass = require('gulp-sass');
 
 const src = './src',
       dist = './dist';
 
-gulp.task('serve', ['sass', 'minify', 'templates'], function(){
+gulp.task('serve', ['sass', 'minify', 'scripts'], function(){
     browserSync.init({
         server: {
             baseDir: "./dist"
@@ -17,7 +18,9 @@ gulp.task('serve', ['sass', 'minify', 'templates'], function(){
     });
 
     gulp.watch(src + '/styles/**/*.scss', ['sass'])
-    gulp.watch(src + '/templates/*.hbs', ['templates'])
+    gulp.watch(src + '**/*.html', ['minify'])
+    gulp.watch(src + '**/*.js', ['scripts'])
+
 });
 
 gulp.task('sass', function(){
@@ -34,13 +37,11 @@ gulp.task('minify', function(){
 });
 
 gulp.task('scripts', function(){
+    const hbsStream = gulp.src(src + '/templates/*.hbs').pipe(handlebars());
+    const jsStream = gulp.src(src + '/js/*.js');
     
-});
-
-gulp.task('templates', function(){
-    gulp.src(src + '/templates/*.hbs')
-        .pipe(handlebars())
-        .pipe(concat('templates.js'))
+    return merge(hbsStream, jsStream)
+        .pipe(concat('scripts.js'))
         .pipe(gulp.dest(dist + '/js'));
 });
 

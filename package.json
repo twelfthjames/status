@@ -1,0 +1,19 @@
+{
+  "name": "status.twelfthjames.com",
+  "version": "1.0.0",
+  "description": "Twelfth & James Media Group - System Status",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/twelfthjames/status.git"
+  },
+  "author": "Twelfth & James Media Group",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/twelfthjames/status/issues"
+  },
+  "homepage": "https://github.com/twelfthjames/status#readme"
+}
